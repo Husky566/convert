@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", sans-serif;
+}
+.container {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center; /* จัดข้อความให้กึ่งกลาง */
+}
+
+/* โครงสร้างคอนเทนเนอร์หลัก */
+.flex-container {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+  
+}
+@media screen and (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+
+/* Flex Slide */
+.flex-slide {
+  flex: 1;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  
+}
+.flex-slide:hover {
+  flex-grow: 3;
+}
+@media screen and (max-width: 768px) {
+  .flex-slide {
+    overflow: auto;
+    overflow-x: hidden;
+  }
+}
+
+/* หัวข้อหลัก */
+.flex-title {
+  color: #ffffff;
+  font-size: 6vw;
+  position: absolute;
+  text-align: center;
+  transform: rotate(90deg);
+  top: 15%;
+  transition: all 0.5s ease;
+}
+.flex-slide:hover .flex-title {
+  transform: rotate(0deg);
+  top: 10%;
+}
+@media screen and (max-width: 768px) {
+  .flex-title {
+    transform: rotate(0deg);
+    font-size: 4vw;
+  }
+}
+
+
+.flex-about {
+  opacity: 0;
+  color: #000000;
+  font-size: 1.5vw;
+  padding: 20px;
+  position: absolute;
+  width: 70%;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  line-height: 1.5;
+  text-align: left;
+  transition: all 0.5s ease;
+}
+.flex-slide:hover .flex-about {
+  opacity: 1;
+}
+@media screen and (max-width: 768px) {
+  .flex-about {
+    font-size: 2.5vw;
+    padding: 15px;
+  }
+}
+
+.home {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(money.jpg);
+    background-size: cover;
+    background-position: center center;
+    /* background-attachment: fixed; */
+  }
+  @media screen and (min-width: 768px) {
+    .home {
+      animation: aboutFlexSlide 3s 1;
+      animation-delay: 0s;
+    }
+  }
+  
+  @keyframes aboutFlexSlide {
+    0% {
+      -webkit-flex-grow: 1;
+      flex-grow: 1;
+    }
+    50% {
+      -webkit-flex-grow: 3;
+      flex-grow: 3;
+    }
+    100% {
+      -webkit-flex-grow: 1;
+      flex-grow: 1;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .flex-title-home {
+      transform: rotate(90deg);
+      top: 15%;
+      animation: aboutFlexSlide 3s 1;
+      animation-delay: 0s;
+    }
+  }
+  
+  @keyframes homeFlextitle {
+    0% {
+      transform: rotate(90deg);
+      top: 15%;
+    }
+    50% {
+      transform: rotate(0deg);
+      top: 15%;
+    }
+    100% {
+      transform: rotate(90deg);
+      top: 15%;
+    }
+  }
+  .flex-about-home {
+    opacity: 0;
+  }
+  @media screen and (min-width: 768px) {
+    .flex-about-home {
+      animation: aboutFlexSlide 3s 1;
+      animation-delay: 0s;
+    }
+  }
+  
+  @keyframes flexAboutHome {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  .about {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(time.jpg);
+    background-size: cover;
+    background-position: center center;
+    /* background-attachment: fixed; */
+  }
+  
+  
+  .work {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(unit.jpg);
+    background-size: cover;
+    background-position: center center;
+    /* background-attachment: fixed; */
+  }
+  
+  .spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #222;
+    height: 100%;
+    width: 100%;
+    z-index: 11;
+    margin-top: 0;
+    color: #fff;
+    font-size: 1em;
+  }
+.spinner .cube1,
+.spinner .cube2 {
+  background-color: #fff;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  animation: sk-cubemove 1.8s infinite ease-in-out;
+}
+.spinner .cube2 {
+  animation-delay: -0.9s;
+}
+@keyframes sk-cubemove {
+  25% {
+    transform: translateX(50px) rotate(-90deg) scale(0.5);
+  }
+  50% {
+    transform: translateX(50px) translateY(50px) rotate(-180deg);
+  }
+  75% {
+    transform: translateX(0) translateY(50px) rotate(-270deg) scale(0.5);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+.result {
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #c3ff00;
+}
+
+select{
+  appearance: none; /* ซ่อนลูกศรเริ่มต้น */
+      -webkit-appearance: none; /* สำหรับ Safari */
+      -moz-appearance: none; /* สำหรับ Firefox */
+      background-color: #f4f4f4;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px 40px 10px 15px; 
+      font-size: 16px;
+      color: #333;
+      cursor: pointer;
+      max-width: 200px;
+      position: relative;
+}
+select:hover {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.7); /* เพิ่มเงาเมื่อมีการ hover */
+    
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 10px rgba(0, 86, 179, 0.6); /* เพิ่มเงาและ border เมื่อ focus */
+}
+select::after {
+      content: "▼";
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none; /* ป้องกันการคลิกที่ลูกศร */
+      font-size: 12px;
+      color: #888;
+    }
+   input {
+      width: 100%;
+      max-width: 200px;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      transition: all 0.3s ease;
+      background-color: #f9f9f9;
+    }
+
+    /* เปลี่ยนสีเมื่อโฟกัส */
+    input:focus {
+      border-color: #007bff; /* สีขอบ */
+      background-color: #fff; /* สีพื้นหลัง */
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.3); /* เพิ่มเงา */
+    }
+
+    /* สไตล์เมื่อ hover */
+    input:hover {
+      border-color: #888; /* สีขอบเมื่อวางเมาส์ */
+    }
+
+    /* ข้อความ placeholder */
+  input::placeholder {
+      color: #aaa;
+      font-style: italic;
+    }
+
+    /* ทำให้ input เป็น invalid */
+    input:invalid {
+      border-color: #dc3545; /* สีแดง */
+      box-shadow: 0 0 5px rgba(220, 53, 69, 0.3);
+    }

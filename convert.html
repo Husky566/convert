@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phakanan Convert</title>
+    <link rel="stylesheet" href="convert.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waitForImages/2.4.2/jquery.waitforimages.min.js"></script>
+    <script src="convert.js" defer></script> 
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-slide home">
+            <div class="flex-title flex-title-home">Cerrency</div>
+            <div class="flex-about flex-about-home">
+                <div class="container">
+                    <h2>Currency Converter</h2>
+                    <div class="form-group">
+                        <label for="conversionType">Convert:</label>
+                        <select id="conversionType" onchange="convertCurrency()">
+                            <option value="THBtoUSD">THB to USD</option>
+                            <option value="USDtoTHB">USD to THB</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="amount">Amount:</label>
+                        <input type="number" id="amount" placeholder="Enter amount" oninput="convertCurrency()">
+                    </div>
+                    <div id="conversionResult" class="result"></div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-slide about">
+            <div class="flex-title">Time</div>
+            <div class="flex-about">
+                <div class="container">
+                    <h2>UTC+7 Time Converter</h2>
+                    <div class="form-group">
+                        <label for="utcOffset">Select Target Time Zone (UTC):</label>
+                        <select id="utcOffset" onchange="convertTime()">
+                            <option value="-12">UTC-12 (Baker Island)</option>
+                            <option value="-11">UTC-11 (American Samoa)</option>
+                            <option value="-10">UTC-10 (Hawaii)</option>
+                            <option value="-9">UTC-9 (Alaska)</option>
+                            <option value="-8">UTC-8 (Los Angeles, Canada)</option>
+                            <option value="-7">UTC-7 (Denver, Canada)</option>
+                            <option value="-6">UTC-6 (Mexico City, Chicago)</option>
+                            <option value="-5">UTC-5 (New York, Toronto)</option>
+                            <option value="-4">UTC-4 (Santiago, Caracas)</option>
+                            <option value="-3">UTC-3 (Buenos Aires, São Paulo)</option>
+                            <option value="-2">UTC-2 (Mid-Atlantic)</option>
+                            <option value="-1">UTC-1 (Azores, Cape Verde)</option>
+                            <option value="0">UTC+0 (London, Accra)</option>
+                            <option value="1">UTC+1 (Berlin, Lagos)</option>
+                            <option value="2">UTC+2 (Cairo, Johannesburg)</option>
+                            <option value="3">UTC+3 (Moscow, Riyadh)</option>
+                            <option value="4">UTC+4 (Dubai, Baku)</option>
+                            <option value="5">UTC+5 (Karachi, Tashkent)</option>
+                            <option value="6">UTC+6 (Dhaka, Almaty)</option>
+                            <option value="7">UTC+7 (Bangkok, Jakarta)</option>
+                            <option value="8">UTC+8 (Beijing, Singapore)</option>
+                            <option value="9">UTC+9 (Tokyo, Seoul)</option>
+                            <option value="10">UTC+10 (Sydney, Vladivostok)</option>
+                            <option value="11">UTC+11 (Magadan, Solomon Islands)</option>
+                            <option value="12">UTC+12 (Auckland, Fiji)</option>
+                            <option value="13">UTC+13 (Tonga, Samoa)</option>
+                            <option value="14">UTC+14 (Kiritimati Island)</option>
+                        </select>
+                    </div>
+                    <div id="timeResult" class="result"></div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-slide work">
+            <div class="flex-title">Unit</div>
+            <div class="flex-about">
+                <div class="container">
+                    <h2>Unit Converter</h2>
+                    <div class="form-group">
+                        <label for="unitConversionType">Convert:</label>
+                        <select id="unitConversionType" onchange="convertUnit()" >
+                    <option value="KMtoMiles">กิโลเมตร To ไมล์</option>
+                    <option value="MilestoKM">ไมล์ To กิโลเมตร</option>
+                    <option value="MtoKM">เมตร To กิโลเมตร</option>
+                    <option value="KMtoM">กิโลเมตร To เมตร</option>
+                    <option value="MtoCM">เมตร To เซนติเมตร</option>
+                    <option value="CMtoM">เซนติเมตร To เมตร</option>
+                    <option value="MtoMM">เมตร To มิลลิเมตร</option>
+                    <option value="MMtoM">มิลลิเมตร To เมตร</option>
+                    <option value="MMtoCM">มิลลิเมตร To เซนติเมตร</option>
+                    <option value="CMtoMM">เซนติเมตร To มิลลิเมตร</option>
+                    <option value="KMtoCM">กิโลเมตร To เซนติเมตร</option>
+                    <option value="CMtoKM">เซนติเมตร To กิโลเมตร</option>
+                    <option value="KMtoMM">กิโลเมตร To มิลลิเมตร</option>
+                    <option value="MMtoKM">มิลลิเมตร To กิโลเมตร</option>
+                </select>
+                        <p id="tooltip" class="tooltip"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="unitAmount">Value:</label>
+                        <input type="number" id="unitAmount" placeholder="Enter value" oninput="convertUnit()" onmousedown="showHint('ใส่จำนวนที่ต้องการแปลง')">
+                    </div>
+                    <div id="unitConversionResult" class="result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
